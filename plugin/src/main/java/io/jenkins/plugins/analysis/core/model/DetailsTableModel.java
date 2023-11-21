@@ -258,7 +258,8 @@ public abstract class DetailsTableModel extends TableModel {
          * @return the formatted column
          */
         protected String formatProperty(final String property, final String value) {
-            return String.format("<a href=\"%s.%d/\">%s</a>", property, value.hashCode(), render(value));
+            String renderedValue = value.isEmpty() ? "-" : render(value);
+            return String.format("<a href=\"%s.%d/\">%s</a>", property, value.hashCode(), renderedValue);
         }
 
         /**
